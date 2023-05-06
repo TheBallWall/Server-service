@@ -1,6 +1,5 @@
 FROM openjdk:17-jdk-slim
 EXPOSE 8080
-WORKDIR /app
-COPY ./target/*.jar /app
-ADD *.jar /app/server.jar
-ENTRYPOINT ["java","-jar","/server.jar"]
+ARG JAR_FILE=target/Server-service-1.jar
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/Server-service-1.jar"]
